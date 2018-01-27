@@ -23,6 +23,8 @@ public class TowerAttack : MonoBehaviour
 
     void Update()
     {
+        availableEnemies.RemoveAll(obj => obj == null);
+
         remainingTime -= Time.deltaTime;
         if (remainingTime <= 0)
         {
@@ -35,7 +37,16 @@ public class TowerAttack : MonoBehaviour
     {
         if (availableEnemies.Count > 0)
         {
-            Kill(GetEnemyToAttack());
+            var unitStats = GetEnemyToAttack().GetComponent<UnitStats>();
+
+            if (unitStats)
+            {
+                unitStats.hp -= damage;
+            }
+            else
+            {
+                Debug.LogError("No Unit Stats attached to Enemy");
+            }
         }
     }
 
@@ -74,12 +85,6 @@ public class TowerAttack : MonoBehaviour
                 break;
         }
         return enemy;
-    }
-
-    void Kill(GameObject obj)
-    {
-        Destroy(obj);
-        availableEnemies.Remove(obj);
     }
 
     private void OnTriggerEnter(Collider other)
