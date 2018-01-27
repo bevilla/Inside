@@ -59,8 +59,15 @@ public class SpawnActorOnClick : MonoBehaviour
         // Spawn an actor on click
         if (Input.GetButtonDown("Fire1") && canSpawn && toInstantiate)
         {
-            if (spawnGreen)
-                Instantiate(toInstantiate, hitPos, Quaternion.identity);
+            Vector3 prices = new Vector3(toInstantiate.GetComponent<SpawnPrice>().vitaminPrice,
+                toInstantiate.GetComponent<SpawnPrice>().proteinPrice,
+                toInstantiate.GetComponent<SpawnPrice>().CalciumPrice);
+
+            if (spawnGreen && PlayerRessources.instance.payRessources(prices.x, prices.y, prices.z))
+            {
+                GameObject freshlyCreated = Instantiate(toInstantiate, hitPos, Quaternion.identity);
+                freshlyCreated.GetComponent<TowerAttack>().isReady = true;
+            }
         }
     }
 

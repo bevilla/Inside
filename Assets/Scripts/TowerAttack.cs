@@ -17,6 +17,7 @@ public class TowerAttack : MonoBehaviour
     public float cooldown;
     public float damage;
     public Algorithm algorithm;
+    public bool isReady = false;
 
     float remainingTime = 0;
     List<GameObject> availableEnemies = new List<GameObject>();
@@ -24,22 +25,25 @@ public class TowerAttack : MonoBehaviour
 
     void Update()
     {
-        availableEnemies.RemoveAll(obj => obj == null);
+        if (isReady)
+        {
+            availableEnemies.RemoveAll(obj => obj == null);
 
-        remainingTime -= Time.deltaTime;
-        if (remainingTime <= 0)
-        {
-            remainingTime = cooldown;
-            Attack();
-        }
-        if (lastAttackedEnemy)
-        {
-            Vector3 lookAt = new Vector3(
-                lastAttackedEnemy.transform.position.x,
-                transform.position.y,
-                lastAttackedEnemy.transform.position.z
-            );
-            transform.LookAt(lookAt);
+            remainingTime -= Time.deltaTime;
+            if (remainingTime <= 0)
+            {
+                remainingTime = cooldown;
+                Attack();
+            }
+            if (lastAttackedEnemy)
+            {
+                Vector3 lookAt = new Vector3(
+                    lastAttackedEnemy.transform.position.x,
+                    transform.position.y,
+                    lastAttackedEnemy.transform.position.z
+                );
+                transform.LookAt(lookAt);
+            }
         }
     }
 

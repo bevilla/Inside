@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PlayerRessources : MonoBehaviour
 {
+    public static PlayerRessources instance;
 
     [SerializeField]
     float maxOxygen;
@@ -28,6 +29,8 @@ public class PlayerRessources : MonoBehaviour
     // Use this for initialization
     void Start ()
     {
+        PlayerRessources.instance = this;
+
         oxygen = maxOxygen;
         oxygenSlider.maxValue = maxOxygen;
         oxygenSlider.value = oxygen;
@@ -85,32 +88,26 @@ public class PlayerRessources : MonoBehaviour
 
     public bool payRessources(float vitaminPrice, float proteinPrice, float calciumPrice)
     {
-        bool returnValue = true;
-
-        if (vitamins > vitaminPrice)
+        if (vitamins >= vitaminPrice && calcium >= calciumPrice && proteins >= proteinPrice)
         {
             vitamins -= vitaminPrice;
             vitaminText.text = vitamins.ToString();
-        }
-        else
-            returnValue = false;
-
-        if (calcium > calciumPrice)
-        {
             calcium -= calciumPrice;
             calciumText.text = calcium.ToString();
-        }
-        else
-            returnValue = false;
-
-        if (proteins > proteinPrice)
-        {
             proteins -= proteinPrice;
             proteinsText.text = proteins.ToString();
+            return (true);
         }
-        else
-            returnValue = false;
+        return (false);
+    }
 
-        return (returnValue);
+    public void addRessource(float vitaminPrice, float proteinPrice, float calciumPrice)
+    {
+        vitamins += vitaminPrice;
+        proteins += proteinPrice;
+        calcium += calciumPrice;
+        calciumText.text = calcium.ToString();
+        proteinsText.text = proteins.ToString();
+        vitaminText.text = vitamins.ToString();
     }
 }
