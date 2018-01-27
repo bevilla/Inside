@@ -279,7 +279,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 113749384}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -5.21}
+  m_LocalPosition: {x: 0, y: 0, z: -4.94}
   m_LocalScale: {x: 1, y: 1, z: 0.46665928}
   m_Children: []
   m_Father: {fileID: 0}
@@ -446,7 +446,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 184378796}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 5.39}
+  m_LocalPosition: {x: 0, y: 0, z: 5.02}
   m_LocalScale: {x: 1, y: 1, z: 0.46665928}
   m_Children: []
   m_Father: {fileID: 0}
@@ -829,7 +829,7 @@ MonoBehaviour:
         m_MethodName: changeObject
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 1693002908}
+          m_ObjectArgument: {fileID: 1750947569}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -1110,35 +1110,6 @@ MonoBehaviour:
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   delegates: []
---- !u!1 &1693002908
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1693002909}
-  m_Layer: 0
-  m_Name: TowerKek
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1693002909
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1693002908}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.269, z: -14.81}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1750947570}
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1750947569
 GameObject:
   m_ObjectHideFlags: 0
@@ -1150,9 +1121,8 @@ GameObject:
   - component: {fileID: 1750947573}
   - component: {fileID: 1750947572}
   - component: {fileID: 1750947571}
-  - component: {fileID: 1750947574}
-  m_Layer: 0
-  m_Name: Cube
+  m_Layer: 11
+  m_Name: TowerKek
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1165,11 +1135,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1750947569}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.52500004, z: 0}
+  m_LocalPosition: {x: 0, y: 0.794, z: -14.81}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1693002909}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &1750947571
 MeshRenderer:
@@ -1185,7 +1155,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 8277bd1e0efda0343aff6f5675ac71ae, type: 2}
+  - {fileID: 2100000, guid: b3f934fb4e874e14bb3a0725887e47ed, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1224,17 +1194,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1750947569}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1750947574
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1750947569}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40557d4f8d23a67489bfc58b6792af7e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1801674418
 GameObject:
   m_ObjectHideFlags: 0
@@ -1320,8 +1279,7 @@ GameObject:
   - component: {fileID: 1938342742}
   - component: {fileID: 1938342741}
   - component: {fileID: 1938342740}
-  - component: {fileID: 1938342744}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: MinionKek
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1342,7 +1300,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 83befea5ac2e65d408934114eb5ce4f6, type: 2}
+  - {fileID: 2100000, guid: abe9c6a3465541e418590d2d0889444e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1394,17 +1352,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1938342744
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1938342739}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40557d4f8d23a67489bfc58b6792af7e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2131837930
 GameObject:
   m_ObjectHideFlags: 0
@@ -1432,7 +1379,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5ae6fa2eaee81d4f86c9ea9e3d3fdad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  toInstantiate: {fileID: 1693002908}
+  toInstantiate: {fileID: 0}
   currentSelectedSpawnable: 0
 --- !u!4 &2131837932
 Transform:
