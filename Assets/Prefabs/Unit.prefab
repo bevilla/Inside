@@ -137,7 +137,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1165219614254684}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.8900003, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4873030975269778}
@@ -377,6 +377,9 @@ MonoBehaviour:
   hpMax: 20
   damage: 5
   speed: 3
+  status:
+    poison: 0
+    stun: 0
   healthBar: {fileID: 114641731535902156}
 --- !u!114 &114793386878421732
 MonoBehaviour:

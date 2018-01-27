@@ -20,6 +20,7 @@ public class TowerAttack : MonoBehaviour
 
     float remainingTime = 0;
     List<GameObject> availableEnemies = new List<GameObject>();
+    GameObject lastAttackedEnemy = null;
 
     void Update()
     {
@@ -31,13 +32,23 @@ public class TowerAttack : MonoBehaviour
             remainingTime = cooldown;
             Attack();
         }
+        if (lastAttackedEnemy)
+        {
+            Vector3 lookAt = new Vector3(
+                lastAttackedEnemy.transform.position.x,
+                transform.position.y,
+                lastAttackedEnemy.transform.position.z
+            );
+            transform.LookAt(lookAt);
+        }
     }
 
     void Attack()
     {
         if (availableEnemies.Count > 0)
         {
-            var unitStats = GetEnemyToAttack().GetComponent<UnitStats>();
+            GameObject enemy = GetEnemyToAttack();
+            var unitStats = enemy.GetComponent<UnitStats>();
 
             if (unitStats)
             {
@@ -47,6 +58,7 @@ public class TowerAttack : MonoBehaviour
             {
                 Debug.LogError("No Unit Stats attached to Enemy");
             }
+            lastAttackedEnemy = enemy;
         }
     }
 
@@ -87,14 +99,11 @@ public class TowerAttack : MonoBehaviour
         return enemy;
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void AddEnemy(GameObject obj)
     {
-        if (other.gameObject.tag == "Enemy")
+        if (!availableEnemies.Contains(obj))
         {
-            if (!availableEnemies.Contains(other.gameObject))
-            {
-                availableEnemies.Add(other.gameObject);
-            }
+            availableEnemies.Add(obj);
         }
     }
 }
