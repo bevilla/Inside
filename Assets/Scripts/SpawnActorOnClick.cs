@@ -18,6 +18,7 @@ public class SpawnActorOnClick : MonoBehaviour
     public E_Spawn currentSelectedSpawnable = E_Spawn.NONE;
     bool canSpawn = true;
     bool spawnGreen = true;
+    public float gridStep;
 
 	// Use this for initialization
 	void Start ()
@@ -29,13 +30,19 @@ public class SpawnActorOnClick : MonoBehaviour
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit rayInfo;
+        Vector3 hitPos = new Vector3(0,0,0);
 
 
         // Show preview
         if (Physics.Raycast(ray, out rayInfo, 9999, LayerMask.GetMask("SpawnTower") | LayerMask.GetMask("SpawnMinion") | LayerMask.GetMask("SpawnNothing")) && canSpawn && preview)
         {
+            // round to the nearest 10 to make square boxes
+            hitPos = rayInfo.point;
+            hitPos.x = Mathf.Round(hitPos.x / gridStep) * gridStep;
+            hitPos.z = Mathf.Round(hitPos.z / gridStep) * gridStep;
+
             preview.SetActive(true);
-            preview.transform.position = rayInfo.point;
+            preview.transform.position = hitPos;
             if ((rayInfo.transform.gameObject.layer == LayerMask.NameToLayer("SpawnTower") && currentSelectedSpawnable == E_Spawn.TOWER)
                 || (rayInfo.transform.gameObject.layer == LayerMask.NameToLayer("SpawnMinion") && currentSelectedSpawnable == E_Spawn.MINION))
                 spawnGreen = true;
@@ -53,7 +60,7 @@ public class SpawnActorOnClick : MonoBehaviour
         if (Input.GetButtonDown("Fire1") && canSpawn && toInstantiate)
         {
             if (spawnGreen)
-                Instantiate(toInstantiate, rayInfo.point, Quaternion.identity);
+                Instantiate(toInstantiate, hitPos, Quaternion.identity);
         }
     }
 

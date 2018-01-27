@@ -1121,7 +1121,7 @@ GameObject:
   - component: {fileID: 1750947573}
   - component: {fileID: 1750947572}
   - component: {fileID: 1750947571}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: TowerKek
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1279,7 +1279,7 @@ GameObject:
   - component: {fileID: 1938342742}
   - component: {fileID: 1938342741}
   - component: {fileID: 1938342740}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: MinionKek
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1381,6 +1381,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   toInstantiate: {fileID: 0}
   currentSelectedSpawnable: 0
+  gridStep: 1
 --- !u!4 &2131837932
 Transform:
   m_ObjectHideFlags: 0
