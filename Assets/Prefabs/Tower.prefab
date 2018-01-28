@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4047198913717396}
   - component: {fileID: 114909803284856302}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37,7 +37,7 @@ GameObject:
   - component: {fileID: 4598810064409458}
   - component: {fileID: 114907980918231658}
   - component: {fileID: 136223445764170864}
-  m_Layer: 2
+  m_Layer: 10
   m_Name: Range
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58,7 +58,7 @@ GameObject:
   - component: {fileID: 54955896640291932}
   - component: {fileID: 65962743718648240}
   - component: {fileID: 114293247981970870}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Tower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -202,7 +202,7 @@ MonoBehaviour:
   cooldown: 0.5
   damage: 3
   algorithm: 0
-  isReady: 1
+  isReady: 0
 --- !u!114 &114907980918231658
 MonoBehaviour:
   m_ObjectHideFlags: 1
