@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class OrgansInfos : MonoBehaviour
@@ -41,6 +42,9 @@ public class OrgansInfos : MonoBehaviour
     public bool isIntestinesAlive = true;
     public bool isLiverAlive = true;
     public bool isBrainAlive = true;
+    [SerializeField]
+    Text organCountText;
+    public int organCount = 5;
 
     void Awake()
     {
@@ -50,5 +54,11 @@ public class OrgansInfos : MonoBehaviour
         {
             positions[elem.key] = elem.value;
         }
+        organCountText.text = organCount.ToString() + "/5";
+    }
+
+    public void refreshOrganCountText()
+    {
+        organCountText.text = organCount.ToString() + "/5";
     }
 }
