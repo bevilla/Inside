@@ -6,6 +6,8 @@ public class EnemyMovement : MonoBehaviour
 {
     public bool isMovingToTube = true;
     [HideInInspector]
+    public bool isMovingToOrgan = false;
+    [HideInInspector]
     public Vector3 destination;
     public OrgansInfos.Organ organDestination;
 
@@ -20,8 +22,12 @@ public class EnemyMovement : MonoBehaviour
 
     void Update()
     {
-        if (isMovingToTube)
+        if (isMovingToTube || isMovingToOrgan)
         {
+            if (isMovingToOrgan)
+            {
+                mto.Stop();
+            }
             Vector3 direction = (destination - transform.position).normalized;
             Vector3 movement = direction * unitStats.speed * Time.deltaTime;
             Vector3 newPosition = transform.position + movement;
@@ -30,9 +36,12 @@ public class EnemyMovement : MonoBehaviour
             transform.position = newPosition;
             if (Vector3.Distance(transform.position, destination) < 0.5f)
             {
+                if (isMovingToTube)
+                {
+                    mto.currentPosition = organDestination;
+                    mto.MoveToNext();
+                }
                 isMovingToTube = false;
-                mto.currentPosition = organDestination;
-                mto.MoveToNext();
             }
         }
     }

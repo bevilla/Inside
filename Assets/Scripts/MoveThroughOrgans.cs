@@ -64,4 +64,9 @@ public class MoveThroughOrgans : MonoBehaviour
         nma.Warp(transform.position);
         nma.destination = destination.position;
     }
+
+    public void Stop()
+    {
+        nma.enabled = false;
+    }
 }
