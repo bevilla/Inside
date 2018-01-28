@@ -1803,11 +1803,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc6778e6c7d80ed4c8d5e25c719b97ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  translateSpeed: 0.4
+  translateSpeed: 2
   borderMargin: 20
   normalized: 1
   zoom: 1
-  zoomSpeed: 0.4
+  zoomSpeed: 5
   nearestZoomY: 2
   farthestZoomY: 120
 --- !u!1 &406154122

@@ -12,8 +12,11 @@ public class CameraBordersMovement : MonoBehaviour
     public float nearestZoomY = 2f;
     public float farthestZoomY = 14f;
 
+    float zoomFactor = 1f;
+
     void Update()
     {
+        zoomFactor = (transform.position.y - nearestZoomY) / (farthestZoomY - nearestZoomY);
         Translate();
         if (zoom)
         {
@@ -46,12 +49,12 @@ public class CameraBordersMovement : MonoBehaviour
         {
             movement = movement.normalized;
         }
-        transform.position += movement * translateSpeed;
+        transform.position += movement * translateSpeed * Mathf.Sqrt(zoomFactor);
     }
 
     void Zoom()
     {
-        Vector3 position = transform.position + transform.forward * Input.mouseScrollDelta.y * zoomSpeed;
+        Vector3 position = transform.position + transform.forward * Input.mouseScrollDelta.y * zoomSpeed * Mathf.Sqrt(zoomFactor);
 
         if (position.y >= nearestZoomY && position.y <= farthestZoomY)
         {

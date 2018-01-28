@@ -18,11 +18,13 @@ public class EnemyAudioManager : MonoBehaviour {
 
     public void PlaySpawn()
     {
+        audioSource.spatialBlend = 0f;
         Play(spawn);
     }
 
     public void PlayFire()
     {
+        audioSource.spatialBlend = 1f;
         Play(fire);
     }
 
