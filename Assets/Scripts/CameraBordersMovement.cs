@@ -44,7 +44,7 @@ public class CameraBordersMovement : MonoBehaviour
         {
             movement += Vector3.back;
         }
-        if (mousePos.y > Screen.height - borderMargin && transform.position.x < maxZ)
+        if (mousePos.y > Screen.height - borderMargin && transform.position.z < maxZ)
         {
             movement += Vector3.forward;
         }
