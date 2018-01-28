@@ -47,7 +47,10 @@ public class SpawnActorOnClick : MonoBehaviour
                 spawnGreen = true;
             else
                 spawnGreen = false;
-            preview.GetComponent<MeshRenderer>().material.SetColor("_Color", (spawnGreen ? new Color(0, 0, 0, 0.5f) : new Color(1, 0, 0, 0.5f)));
+            foreach (var mesh in preview.GetComponentsInChildren<MeshRenderer>())
+            {
+               mesh.material.SetColor("_Color", (spawnGreen ? new Color(0, 0, 0, 0.5f) : new Color(1, 0, 0, 0.5f)));
+            }
         }
         else
         {
@@ -59,14 +62,15 @@ public class SpawnActorOnClick : MonoBehaviour
         if (Input.GetButtonDown("Fire1") && canSpawn && toInstantiate)
         {
             //Debug.DrawRay(ray.origin, Camera.main.ScreenPointToRay(Input.mousePosition).direction, Color.green,10);
-            Vector3 prices = new Vector3(toInstantiate.GetComponent<SpawnPrice>().vitaminPrice,
-                toInstantiate.GetComponent<SpawnPrice>().proteinPrice,
-                toInstantiate.GetComponent<SpawnPrice>().CalciumPrice);
+            var spawnPrice = toInstantiate.GetComponentInChildren<SpawnPrice>();
+            Vector3 prices = new Vector3(spawnPrice.vitaminPrice,
+                spawnPrice.proteinPrice,
+                spawnPrice.CalciumPrice);
 
             if (spawnGreen && PlayerRessources.instance.payRessources(prices.x, prices.y, prices.z))
             {
                 GameObject freshlyCreated = Instantiate(toInstantiate, hitPos, Quaternion.identity);
-                freshlyCreated.GetComponent<TowerAttack>().isReady = true;
+                freshlyCreated.GetComponentInChildren<TowerAttack>().isReady = true;
             }
         }
 

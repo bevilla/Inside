@@ -8,13 +8,16 @@ public class TowerMouserOver : MonoBehaviour
     [HideInInspector]
     public bool isSelected = false;
 
-    Material mat;
+    List<Material> mats = new List<Material>();
     bool isGlowing = false;
 
     void Awake()
     {
         isSelected = false;
-        mat = tower.gameObject.GetComponent<MeshRenderer>().material;
+        foreach (var mesh in tower.gameObject.GetComponentsInChildren<MeshRenderer>())
+        {
+            mats.Add(mesh.material);
+        }
     }
 
     void Update()
@@ -33,13 +36,19 @@ public class TowerMouserOver : MonoBehaviour
                 {
                     isSelected = Input.GetMouseButtonDown(0);
                 }
-                mat.SetFloat("_Outline", 0.2f);
+                foreach (var mat in mats)
+                {
+                    mat.SetFloat("_Outline", 0.2f);
+                }
             }
         }
         isSelected = Input.GetMouseButtonDown(0) && !shouldGlow ? false : isSelected;
         if (!isSelected && isGlowing && !shouldGlow)
         {
-            mat.SetFloat("_Outline", 0f);
+            foreach (var mat in mats)
+            {
+                mat.SetFloat("_Outline", 0f);
+            }
         }
     }
 }

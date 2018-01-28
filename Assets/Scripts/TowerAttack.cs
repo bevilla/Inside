@@ -18,10 +18,25 @@ public class TowerAttack : MonoBehaviour
     public float damage;
     public Algorithm algorithm;
     public bool isReady = false;
+    public GameObject lookAtAs;
 
     float remainingTime = 0;
     List<GameObject> availableEnemies = new List<GameObject>();
     GameObject lastAttackedEnemy = null;
+    Animator anim;
+
+    void Start()
+    {
+        anim = GetComponentInChildren<Animator>();    
+        if (lookAtAs == null)
+        {
+            lookAtAs = gameObject;
+        }
+        else
+        {
+            Debug.LogWarning("lookAtAs not set", this);
+        }
+    }
 
     void Update()
     {
@@ -39,10 +54,10 @@ public class TowerAttack : MonoBehaviour
             {
                 Vector3 lookAt = new Vector3(
                     lastAttackedEnemy.transform.position.x,
-                    transform.position.y,
+                    lookAtAs.transform.position.y,
                     lastAttackedEnemy.transform.position.z
                 );
-                transform.LookAt(lookAt);
+                lookAtAs.transform.LookAt(lookAt);
             }
         }
     }
@@ -62,6 +77,7 @@ public class TowerAttack : MonoBehaviour
             {
                 Debug.LogError("No Unit Stats attached to Enemy");
             }
+            anim.SetTrigger("Attack");
             lastAttackedEnemy = enemy;
         }
     }
