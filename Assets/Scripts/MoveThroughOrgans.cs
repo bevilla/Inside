@@ -5,7 +5,9 @@ using UnityEngine.AI;
 
 public class MoveThroughOrgans : MonoBehaviour
 {
-    OrgansInfos.Organ currentPosition;
+    [HideInInspector]
+    public OrgansInfos.Organ currentPosition;
+
     Transform destination;
 
     NavMeshAgent nma;
@@ -42,20 +44,24 @@ public class MoveThroughOrgans : MonoBehaviour
     void Start()
     {
         nma = GetComponent<NavMeshAgent>();
-        currentPosition = OrgansInfos.Organ.IntestinesRight;
-        destination = OrgansInfos.instance.positions[currentPosition];
-        MoveToNext();
-    }
-
-    void Update()
-    {
-        //nma.Move(destination.position);
+        nma.speed = GetComponent<UnitStats>().speed;
+        nma.enabled = false;
     }
 
     public void MoveToNext()
     {
         currentPosition = linkedPoints[currentPosition]();
         destination = OrgansInfos.instance.positions[currentPosition];
+        Move();
+    }
+
+    public void Move()
+    {
+        if (!nma.enabled)
+        {
+            nma.enabled = true;
+        }
+        nma.Warp(transform.position);
         nma.destination = destination.position;
     }
 }
