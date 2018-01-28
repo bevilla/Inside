@@ -71,6 +71,8 @@ public class SpawnActorOnClick : MonoBehaviour
             {
                 GameObject freshlyCreated = Instantiate(toInstantiate, hitPos, Quaternion.identity);
                 freshlyCreated.GetComponentInChildren<TowerAttack>().isReady = true;
+                freshlyCreated.GetComponentInChildren<AudioSource>().Play();
+                freshlyCreated.AddComponent<SpawnTowerAnim>();
             }
         }
 

@@ -87,7 +87,7 @@ public class TowerAttack : MonoBehaviour
     {
         yield return new WaitForSeconds(animDelay);
         unitStats.hp -= damage;
-
+        GetComponentInParent<EnemyAudioManager>().PlayFire();
     }
 
     GameObject GetEnemyToAttack()
