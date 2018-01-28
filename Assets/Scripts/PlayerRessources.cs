@@ -26,6 +26,12 @@ public class PlayerRessources : MonoBehaviour
     [SerializeField]
     float proteins;
 
+    float score;
+    [SerializeField]
+    Text scoreText;
+    [SerializeField]
+    GameObject gameOverPanel;
+
     // Use this for initialization
     void Start ()
     {
@@ -106,11 +112,25 @@ public class PlayerRessources : MonoBehaviour
         vitamins += vitaminPrice;
         proteins += proteinPrice;
         calcium += calciumPrice;
-        if (calciumText && proteinsText && vitaminText)
+        score++;
+        if (calciumText && proteinsText && vitaminText && scoreText)
         {
             calciumText.text = calcium.ToString();
             proteinsText.text = proteins.ToString();
             vitaminText.text = vitamins.ToString();
+            scoreText.text = "You killed " + score + " enemies";
         }
+    }
+
+    public void gameOver()
+    {
+        Time.timeScale = 0;
+        gameOverPanel.SetActive(true);
+    }
+
+    public void restartLevel()
+    {
+        Time.timeScale = 1;
+        Application.LoadLevel(Application.loadedLevel);
     }
 }

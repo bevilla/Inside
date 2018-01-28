@@ -60,5 +60,7 @@ public class OrgansInfos : MonoBehaviour
     public void refreshOrganCountText()
     {
         organCountText.text = organCount.ToString() + "/5";
+        if (organCount <= 0)
+            PlayerRessources.instance.gameOver();
     }
 }

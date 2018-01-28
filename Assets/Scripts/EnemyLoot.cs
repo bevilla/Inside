@@ -12,6 +12,7 @@ public class EnemyLoot : MonoBehaviour {
 
     private void OnDestroy()
     {
-        PlayerRessources.instance.addRessource(vitaminLoot, proteinLoot, calciumLoot);
+        if (PlayerRessources.instance)
+            PlayerRessources.instance.addRessource(vitaminLoot, proteinLoot, calciumLoot);
     }
 }
