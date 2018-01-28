@@ -37,7 +37,6 @@ GameObject:
   - component: {fileID: 4598810064409458}
   - component: {fileID: 114907980918231658}
   - component: {fileID: 136223445764170864}
-  - component: {fileID: 135699420387162194}
   m_Layer: 2
   m_Name: Range
   m_TagString: Untagged
@@ -86,7 +85,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1844864710951492}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.3561735, y: -3.9, z: 121.31838}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 3.81, z: 1}
   m_Children:
   - {fileID: 4598810064409458}
@@ -203,7 +202,7 @@ MonoBehaviour:
   cooldown: 0.5
   damage: 3
   algorithm: 0
-  isReady: 0
+  isReady: 1
 --- !u!114 &114907980918231658
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -229,18 +228,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tower: {fileID: 1844864710951492}
   isSelected: 1
---- !u!135 &135699420387162194
-SphereCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1328935214885366}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 5.33
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &136223445764170864
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -249,7 +236,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 1328935214885366}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 0
+  m_Enabled: 1
   m_Radius: 10
   m_Height: 20
   m_Direction: 1
