@@ -7,12 +7,14 @@ public class EnemyLoot : MonoBehaviour {
     [SerializeField]
     PlayerRessources playerRessourceManager;
 
+    public bool canLoot = true;
+
     [SerializeField]
     float vitaminLoot, calciumLoot, proteinLoot;
 
     private void OnDestroy()
     {
-        if (PlayerRessources.instance)
+        if (PlayerRessources.instance && canLoot)
             PlayerRessources.instance.addRessource(vitaminLoot, proteinLoot, calciumLoot);
     }
 }

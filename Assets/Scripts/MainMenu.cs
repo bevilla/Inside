@@ -8,6 +8,5 @@ public class MainMenu : MonoBehaviour
     public void startGame()
     {
         SceneManager.LoadScene("game");
-        Debug.Log("Tkt");
     }
 }

@@ -204,7 +204,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1147635156746758}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -213,7 +213,7 @@ Transform:
   - {fileID: 4110961382006842}
   m_Father: {fileID: 4236014977280156}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!4 &4236014977280156
 Transform:
   m_ObjectHideFlags: 1
@@ -421,7 +421,7 @@ Animator:
   m_GameObject: {fileID: 1147635156746758}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 431cd6eec3f8de64ab48a81e029020cc, type: 3}
-  m_Controller: {fileID: 9100000, guid: 29cf7061a62562443893b61668511faa, type: 2}
+  m_Controller: {fileID: 9100000, guid: d7ce2a1c490e19b459aa87e7da23843f, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -453,11 +453,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cooldown: 6
-  damage: 10
+  damage: 30
   algorithm: 0
   isReady: 0
   lookAtAs: {fileID: 0}
-  animDelay: 0.4
+  animDelay: 0.1
 --- !u!114 &114213872984597016
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -494,10 +494,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 10
+  m_Radius: 11.65
   m_Height: 20
   m_Direction: 1
-  m_Center: {x: 11.34, y: 0, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!137 &137375403318877866
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

@@ -51,6 +51,7 @@ public class OrganManager : MonoBehaviour
         {
             case E_OrganType.BRAIN:
                 OrgansInfos.instance.isBrainAlive = false;
+                PlayerRessources.instance.gameOver();
                 break;
             case E_OrganType.HEART:
                 OrgansInfos.instance.isHeartAlive = false;
@@ -75,6 +76,7 @@ public class OrganManager : MonoBehaviour
         if (col.collider.tag == "Enemy")
         {
             health -= col.collider.GetComponent<UnitStats>().damage;
+            col.collider.GetComponent<EnemyLoot>().canLoot = false;
             Destroy(col.collider.gameObject);
             if (health <= 0)
                 death();
