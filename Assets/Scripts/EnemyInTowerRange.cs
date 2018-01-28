@@ -21,4 +21,12 @@ public class EnemyInTowerRange : MonoBehaviour
             tower.AddEnemy(other.gameObject);
         }
     }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Enemy")
+        {
+            tower.RemoveEnemy(other.gameObject);
+        }
+    }
 }

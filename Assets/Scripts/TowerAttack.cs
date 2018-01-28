@@ -110,4 +110,9 @@ public class TowerAttack : MonoBehaviour
             availableEnemies.Add(obj);
         }
     }
+
+    public void RemoveEnemy(GameObject obj)
+    {
+        availableEnemies.Remove(obj);
+    }
 }
