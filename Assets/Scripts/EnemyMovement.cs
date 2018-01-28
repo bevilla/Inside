@@ -12,7 +12,8 @@ public class EnemyMovement : MonoBehaviour
     public OrgansInfos.Organ organDestination;
 
     UnitStats unitStats;
-    MoveThroughOrgans mto;
+    [HideInInspector]
+    public MoveThroughOrgans mto;
 
     void Awake()
     {

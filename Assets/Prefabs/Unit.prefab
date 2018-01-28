@@ -809,8 +809,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isMovingToTube: 1
+  isMovingToOrgan: 0
   destination: {x: 0, y: 0, z: 0}
   organDestination: 0
+  mto: {fileID: 0}
 --- !u!114 &114100050726830890
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -962,7 +964,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hpMax: 20
   damage: 5
-  speed: 3
+  speed: 15
   status:
     poison: 0
     stun: 0
