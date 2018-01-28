@@ -12,6 +12,9 @@ public class CameraBordersMovement : MonoBehaviour
     public float nearestZoomY = 2f;
     public float farthestZoomY = 14f;
 
+    [SerializeField]
+    float maxX, minX, maxZ, minZ;
+
     float zoomFactor = 1f;
 
     void Update()
@@ -29,19 +32,19 @@ public class CameraBordersMovement : MonoBehaviour
         Vector2 mousePos = Input.mousePosition;
         Vector3 movement = Vector3.zero;
 
-        if (mousePos.x < borderMargin)
+        if (mousePos.x < borderMargin && transform.position.x > minX)
         {
             movement += Vector3.left;
         }
-        if (mousePos.x > Screen.width - borderMargin)
+        if (mousePos.x > Screen.width - borderMargin && transform.position.x < maxX)
         {
             movement += Vector3.right;
         }
-        if (mousePos.y < borderMargin)
+        if (mousePos.y < borderMargin && transform.position.z > minZ)
         {
             movement += Vector3.back;
         }
-        if (mousePos.y > Screen.height - borderMargin)
+        if (mousePos.y > Screen.height - borderMargin && transform.position.x < maxZ)
         {
             movement += Vector3.forward;
         }
