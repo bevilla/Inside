@@ -32,9 +32,8 @@ public class SpawnActorOnClick : MonoBehaviour
         RaycastHit rayInfo;
         Vector3 hitPos = new Vector3(0,0,0);
 
-
         // Show preview
-        if (Physics.Raycast(ray, out rayInfo, 9999, LayerMask.GetMask("SpawnTower") | LayerMask.GetMask("SpawnMinion") | LayerMask.GetMask("SpawnNothing")) && canSpawn && preview)
+        if (Physics.Raycast(ray, out rayInfo, Mathf.Infinity, LayerMask.GetMask("SpawnTower") | LayerMask.GetMask("SpawnMinion") | LayerMask.GetMask("SpawnNothing")) && canSpawn && preview)
         {
             // round to the nearest 10 to make square boxes
             hitPos = rayInfo.point;
@@ -59,6 +58,7 @@ public class SpawnActorOnClick : MonoBehaviour
         // Spawn an actor on click
         if (Input.GetButtonDown("Fire1") && canSpawn && toInstantiate)
         {
+            //Debug.DrawRay(ray.origin, Camera.main.ScreenPointToRay(Input.mousePosition).direction, Color.green,10);
             Vector3 prices = new Vector3(toInstantiate.GetComponent<SpawnPrice>().vitaminPrice,
                 toInstantiate.GetComponent<SpawnPrice>().proteinPrice,
                 toInstantiate.GetComponent<SpawnPrice>().CalciumPrice);
@@ -68,6 +68,13 @@ public class SpawnActorOnClick : MonoBehaviour
                 GameObject freshlyCreated = Instantiate(toInstantiate, hitPos, Quaternion.identity);
                 freshlyCreated.GetComponent<TowerAttack>().isReady = true;
             }
+        }
+
+        if (Input.GetButtonDown("Fire2") && toInstantiate)
+        {
+            currentSelectedSpawnable = E_Spawn.NONE;
+            toInstantiate = null;
+            Destroy(preview);
         }
     }
 

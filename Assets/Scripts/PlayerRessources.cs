@@ -106,8 +106,11 @@ public class PlayerRessources : MonoBehaviour
         vitamins += vitaminPrice;
         proteins += proteinPrice;
         calcium += calciumPrice;
-        calciumText.text = calcium.ToString();
-        proteinsText.text = proteins.ToString();
-        vitaminText.text = vitamins.ToString();
+        if (calciumText && proteinsText && vitaminText)
+        {
+            calciumText.text = calcium.ToString();
+            proteinsText.text = proteins.ToString();
+            vitaminText.text = vitamins.ToString();
+        }
     }
 }
