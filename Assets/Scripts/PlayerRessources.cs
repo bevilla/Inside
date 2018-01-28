@@ -32,6 +32,9 @@ public class PlayerRessources : MonoBehaviour
     [SerializeField]
     GameObject gameOverPanel;
 
+    public AudioSource audioSource;
+    public AudioClip gameOverAudioClip;
+
     // Use this for initialization
     void Start ()
     {
@@ -126,6 +129,10 @@ public class PlayerRessources : MonoBehaviour
     {
         Time.timeScale = 0;
         gameOverPanel.SetActive(true);
+        audioSource.Stop();
+        audioSource.clip = gameOverAudioClip;
+        audioSource.loop = false;
+        audioSource.Play();
     }
 
     public void restartLevel()
