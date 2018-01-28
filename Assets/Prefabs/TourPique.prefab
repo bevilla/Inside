@@ -1694,6 +1694,7 @@ MonoBehaviour:
   algorithm: 0
   isReady: 0
   lookAtAs: {fileID: 1040360521764534}
+  animDelay: 1.2
 --- !u!136 &136830209816332648
 CapsuleCollider:
   m_ObjectHideFlags: 1

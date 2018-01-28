@@ -19,6 +19,7 @@ public class TowerAttack : MonoBehaviour
     public Algorithm algorithm;
     public bool isReady = false;
     public GameObject lookAtAs;
+    public float animDelay = 0f;
 
     float remainingTime = 0;
     List<GameObject> availableEnemies = new List<GameObject>();
@@ -71,7 +72,7 @@ public class TowerAttack : MonoBehaviour
 
             if (unitStats)
             {
-                unitStats.hp -= damage;
+                StartCoroutine(RemoveEnemyHP(unitStats));
             }
             else
             {
@@ -80,6 +81,13 @@ public class TowerAttack : MonoBehaviour
             anim.SetTrigger("Attack");
             lastAttackedEnemy = enemy;
         }
+    }
+
+    IEnumerator RemoveEnemyHP(UnitStats unitStats)
+    {
+        yield return new WaitForSeconds(animDelay);
+        unitStats.hp -= damage;
+
     }
 
     GameObject GetEnemyToAttack()
