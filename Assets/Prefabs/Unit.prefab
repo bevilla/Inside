@@ -262,7 +262,7 @@ GameObject:
   - component: {fileID: 114793386878421732}
   m_Layer: 0
   m_Name: UIPivot
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -308,7 +308,7 @@ GameObject:
   - component: {fileID: 95086218372031832}
   m_Layer: 0
   m_Name: Bacterie1
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
